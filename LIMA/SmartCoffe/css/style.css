@@ -1,9 +1,10 @@
 body {
-background-color: #dad6d5;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-margin: 0;
+    background-color: #dad6d5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
 }
-body > header{
+
+body > header {
     padding: 10px 10px 20px;
     background-color: rgb(95, 39, 6);
     display: flex;
@@ -11,8 +12,7 @@ body > header{
     justify-content: space-between;
 }
 
-nav{
-    
+nav {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -20,70 +20,126 @@ nav{
     padding: 0;
 }
 
-footer{
+footer {
     text-align: center;
     padding: 20px 20px 30px;
     background-color: rgb(95, 39, 6);
 }
-.banner-inicio{
+
+.banner-inicio {
     text-align: right;
 }
-.cafes-conteudo{
+
+.cafes-conteudo {
     text-align: center;
 }
-button{
+
+button {
     background-color: rgb(80, 32, 7);
-    border-radius: 20px; 
+    border-radius: 20px;
     padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.SmartCoffe{
+button:hover {
+    background-color: rgb(114, 93, 93);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.SmartCoffe {
     margin: 0;
-    width: 10px;
     padding: 10px;
 }
 
 a {
-  color: rgb(0, 0, 0);             
-  text-decoration: none;   
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
-.lista-cafe{
+.lista-cafe {
     text-align: center;
-    padding: 20px 20px 30px;
     background-color: #d6956f;
-    
-    border-radius: 20px; 
     border-radius: 50px;
     padding: 30px;
-
 }
-section{
+
+section {
     background-color: aliceblue;
     margin-bottom: 5px;
     padding: 30px;
 }
 
-
-.card-cafe{
+.card-cafe {
     display: flex;
     text-align: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.tipos-cafes{
+.tipos-cafes {
     display: flex;
     text-align: center;
-    width: 80px;
+    justify-content: center;
+    gap: 20px;
     padding: 30px;
+    flex-wrap: wrap;
 }
 
 .ambiente-imagem img {
     width: 400px;
     height: 300px;
+    object-fit: cover;
 }
 
-.logo-img img{
+.logo-img {
+    text-align: right;
+}
+
+.logo-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.paginas a:hover {
+    background-color: rgb(114, 93, 93);
+}
+
+.social-icons {
     display: flex;
-   text-align: right;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
+.social-icons a {
+    color: #c2ab8e;
+    font-size: 19px;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse nos ícones */
+.social-icons a:hover {
+    color: #a38c6f;
+    transform: translateY(-2px);
+}
+
+.smartcoffefooter {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+    color: #a38c6f;
+}
+
+.links-footer{
+    display: flex;
+    justify-content: flex-start;
+}
