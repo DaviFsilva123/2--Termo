@@ -32,6 +32,12 @@ span{
   
 }
 
+.herois{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+}
+
 button{
     background-color: greenyellow;
     border-radius: 17px;
@@ -56,7 +62,7 @@ p{
 
 
 img{
-    display: flex;
+   
     width: 300px;
    height: 300px;
 }
@@ -87,6 +93,7 @@ img{
     display: flex;
     justify-content: center;
 }
+
 .memoria{
     display: flex;
     justify-content: center;
@@ -94,7 +101,13 @@ img{
 
 
 footer{
+    display: flex;
+    width: 100%;
+    min-height: 200px;
+    gap: 200px;
     background-color: black;
+    align-items: center;
+    
 
 }
 .Nostalgias{
@@ -107,5 +120,55 @@ footer{
 
 }
 .date{
+    height: 200px;
+    width: 120px;
+}
 
+.desenhos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+}
+
+.desenhos{
+    display: flex;
+    justify-content: center;
+}
+
+.caverna{
+
+    margin-top: 290px;
+}
+.cavaleiro{
+
+    margin-top: 290px;
+}
+
+.sec5{
+    height: 200px;
+    background-color: rgb(2, 22, 2);
+}
+
+
+.X-MEN{
+    background-color: rgb(2, 22, 2) ;
+    border-radius: 17px;
+    width: 200px;
+    height: 150px;
+
+}
+
+.fim{
+    
+    text-align: center;
+}
+.nunca{
+    text-align: center;
+}
+.ALGUMAS{
+    text-align: center;
+}
+
+.sobre{
+    padding: 20p;
 }
