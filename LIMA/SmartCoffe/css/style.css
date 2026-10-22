@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 body {
     background-color: #dad6d5;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
 }
 
-=======
+
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ body {
     margin: 0;
 }
 
->>>>>>> 2ff6c7a02e9067b869874202491b24a79726b70d
+
 body > header {
     padding: 10px 10px 20px;
     background-color: rgb(95, 39, 6);
@@ -158,14 +158,17 @@ section {
     color: #a38c6f;
 }
 
-<<<<<<< HEAD
+
 .links-footer{
     display: flex;
     justify-content: flex-start;
 }
-=======
+
 .links-footer {
     display: flex;
     justify-content: flex-start;
 }
->>>>>>> 2ff6c7a02e9067b869874202491b24a79726b70d
+
+.conheca{
+    
+}

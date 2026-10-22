@@ -1,0 +1,111 @@
+body{
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header{
+    justify-content: right;
+    margin-top: -50px;
+    gap: 10px;
+    display: flex;
+   height: 40px;
+    
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.Nostalgia{
+   color: white;
+}
+span{
+   
+    color: greenyellow;
+}
+.sec1{
+  background-color: rgb(2, 22, 2);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  
+}
+
+button{
+    background-color: greenyellow;
+    border-radius: 17px;
+    width: 160px;
+    height: 40px;
+
+}
+
+
+h1{
+    color: white;
+}
+h2{
+    color: white;
+}
+h3{
+    color: white;
+}
+p{
+    color: white;
+}
+
+
+img{
+    display: flex;
+    width: 300px;
+   height: 300px;
+}
+.efeito{
+    color: gray;
+   
+}
+.data{
+    color:  greenyellow;
+}
+.art1{
+    margin-top: -390px;
+   justify-content: right;
+    display: flex;
+}
+.art2{
+    display: flex;
+    justify-content: right;
+}
+
+.faixa-especial{
+    display: flex;
+    justify-content: center;
+    color: greenyellow;
+}
+
+.herois{
+    display: flex;
+    justify-content: center;
+}
+.memoria{
+    display: flex;
+    justify-content: center;
+}
+
+
+footer{
+    background-color: black;
+
+}
+.Nostalgias{
+    
+    font-size: 20px;
+}
+.memoria-boa{
+    display: flex;
+    justify-content: center;
+
+}
+.date{
+
+}
