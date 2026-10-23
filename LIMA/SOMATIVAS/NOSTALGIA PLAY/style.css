@@ -172,3 +172,99 @@ footer{
 .sobre{
     padding: 20p;
 }
+
+
+
+    body {
+      background-color: #0b0d1b;
+      font-family: 'Montserrat', sans-serif;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 60px 0 60px;
+    }
+
+    .cabecalho {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 40px;
+    }
+
+    .header {
+      margin-bottom: 40px;
+    }
+
+    .subtitulo {
+      color: greenyellow;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    
+    }
+
+    .titulo {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+    }
+
+   
+    .desenhos-ano{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 60px;
+     
+    }
+
+    
+    .card {
+      border-radius: 16px;
+      padding: 30px 24px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+    }
+
+    
+
+    .card-personagem{
+      font-size: 30px;
+      border-radius: 20px;
+      background-color: greenyellow;
+      color: #000000;
+    }
+
+
+
+
+    .text-item {
+      padding: 10px;
+    }
+
+    .number {
+      color:  greenyellow;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .category {
+      color:  greenyellow;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+/* 
+    .item-title {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.3px;
+    } */
+
