@@ -1,274 +1,385 @@
-body{
-    background-color: rgb(0, 0, 0);
-    margin: 0;
-    
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-header{
-    justify-content: right;
-    margin-top: -50px;
-    gap: 10px;
-    display: flex;
-   height: 40px;
-    
+html {
+    scroll-behavior: smooth;
 }
-a{
+
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+span {
+    color: greenyellow;
+}
+
+a {
     color: white;
     text-decoration: none;
 }
-.Nostalgia{
-   color: white;
-}
-span{
-   
-    color: greenyellow;
-}
-.sec1{
-  background-color: rgb(2, 22, 2);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  height: 400px;
 
-}
-.texto-sec1{
-    margin-top: 50px;
-}
-.img_nostalgia{
-    margin-top: -250px;
-    padding: 300px ;
-}
-.herois{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
+img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
 }
 
-button{
+
+p {
+    margin-top: 0;
+}
+
+
+h3 {
+    color: white;
+}
+
+p {
+    color: white;
+    line-height: 1.5;
+}
+
+.botao-play {
     background-color: greenyellow;
+    color: #000;
     border-radius: 17px;
-    width: 160px;
-    height: 40px;
-
+    padding: 12px 22px;
+    font-weight: bold;
 }
 
+.marca {
+    padding: 12px 20px;
+}
 
-h1{
+.Nostalgia {
     color: white;
-}
-h2{
-    color: white;
-}
-h3{
-    color: white;
-}
-p{
-    color: white;
+    font-size: 28px;
+    margin: 0;
 }
 
-
-img{
-   
-    width: 300px;
-   height: 300px;
-}
-.efeito{
-    color: gray;
-   
-}
-.data{
-    color:  greenyellow;
-}
-.art1{
-    margin-top: -390px;
-   justify-content: right;
+header {
     display: flex;
-}
-.art2{
-    display: flex;
-    justify-content: right;
-}
-
-.faixa-especial{
-    display: flex;
-    justify-content: center;
-    color: greenyellow;
-}
-
-.herois{
-    display: flex;
-    justify-content: center;
-}
-
-.memoria{
-    display: flex;
-    justify-content: center;
-}
-
-
-footer{
-    display: flex;
-    width: 100%;
-    min-height: 200px;
-    gap: 200px;
-    background-color: black;
+    justify-content: flex-end;
     align-items: center;
-    
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 15px 30px 25px;
+}
 
+header a {
+    font-size: 14px;
+    font-weight: bold;
 }
-.Nostalgias{
-    
-    font-size: 20px;
+
+
+.botao-sobre {
+    background-color: greenyellow;
+    color: #000;
+    padding: 10px 22px;
+    border-radius: 15px;
 }
-.memoria-boa{
+
+
+.sec1 {
+    background-color: rgb(2, 22, 2);
+    min-height: 450px;
+    padding: 55px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.texto-sec1 {
+    flex: 1;
+}
+
+.texto-sec1 h1 {
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+}
+
+.texto-sec1 p {
+    max-width: 500px;
+}
+
+.data {
+    color: greenyellow;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.efeito {
+    color: gray;
+}
+
+.img_nostalgia {
+    flex: 1;
     display: flex;
     justify-content: center;
-
-}
-.date{
-    height: 200px;
-    width: 120px;
+    align-items: center;
 }
 
-.desenhos{
+.img_nostalgia img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+
+.sec2 {
+    padding: 80px 8%;
+}
+
+.sec2 h2 {
+    font-size: 34px;
+    line-height: 1.15;
+}
+
+.sec2 > p:not(.data) {
+    color: #aaa;
+    max-width: 650px;
+}
+
+.desenhos {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+    margin-top: 35px;
 }
 
-.desenhos{
-    display: flex;
-    justify-content: center;
+.desenho-classico img {
+    width: 100%;
+    height: 300px;
 }
 
-.caverna{
 
-    margin-top: 290px;
-}
-.cavaleiro{
 
-    margin-top: 290px;
-}
 
-.sec5{
-    height: 200px;
+
+
+.sec3 {
+    padding: 70px 8%;
     background-color: rgb(2, 22, 2);
 }
 
-
-.X-MEN{
-    background-color: rgb(2, 22, 2) ;
-    border-radius: 17px;
-    width: 200px;
-    height: 150px;
-
-}
-
-.fim{
-    
+.faixa-especial {
     text-align: center;
-}
-.nunca{
-    text-align: center;
-}
-.ALGUMAS{
-    text-align: center;
+    color: greenyellow;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.sobre{
-    padding: 20p;
+.titulo-centralizado {
+    text-align: center;
+    font-size: 32px;
+}
+
+.texto-centralizado {
+    text-align: center;
+    color: #aaa;
+}
+
+.herois {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.heroi img {
+    width: 100%;
+    height: 300px;
+}
+
+.heroi p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 18px 0 5px;
+}
+
+.heroi h3 {
+    margin-bottom: 0;
+}
+
+
+.sec4 {
+    padding: 80px 6%;
 }
 
 .cabecalho {
-    max-width: 1000px;
-    margin: 0 auto;
     width: 100%;
-    padding-bottom: 40px;
-    }
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
 .header {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 
 .subtitulo {
     color: greenyellow;
     font-size: 13px;
     font-weight: 700;
-    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
 }
 
 .titulo {
-    font-size: 38px;
+    font-size: clamp(32px, 4vw, 42px);
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: -0.5px;
 }
 
-   
-.desenhos-ano{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 60px;
-}
 
-    
-.card {
-    border-radius: 16px;
-    padding: 30px 24px;
-    height: 140px;
-    display: flex;
+
+.desenhos-ano {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 35px 45px;
     align-items: center;
 }
 
-    
 
-.card-personagem{
-    font-size: 30px;
-    border-radius: 20px;
+
+.card-personagem {
     background-color: greenyellow;
-    color: #000000;
+    color: #000;
+    min-height: 380px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
+.card-personagem h2 {
+    color: white;
+    font-size: 30px;
+    margin: 10px 0 14px;
+}
+
+.card-personagem img {
+    width: 300px;
+    max-width: 100%;
+    height: 300px;
+}
 
 
 
 .texto-item {
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .number {
-    color:  greenyellow;
+    color: greenyellow;
     font-size: 28px;
     font-weight: 800;
-    line-height: 1;
- }
+    margin-bottom: 5px;
+}
 
 .categoria {
-    color:  greenyellow;
-    font-size: 11px;
+    color: greenyellow;
+    font-size: 20px;
+    margin-bottom: 18px;
+}
+
+.item-title {
+    color: white;
+    font-size: 18px;
     font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    margin: 0;
 }
 
 
-.Desenvolvido{
+
+.gravity-card {
+    min-height: 420px;
+}
+
+.gravity-card img {
+    width: 300px;
+    height: 300px;
+}
+
+.gravity-texto {
+    align-self: center;
+}
+
+
+
+.sec5 {
+    min-height: 240px;
+    padding: 45px 20px;
+    background-color: rgb(2, 22, 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fim {
+    margin-bottom: 10px;
+}
+
+.nunca {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.ALGUMAS {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+    min-height: 180px;
+    padding: 35px 6%;
+    background-color: #000;
+}
+
+.Nostalgias {
+    font-size: 22px;
+    margin: 0;
+}
+
+.texto-f {
+    max-width: 450px;
+}
+
+.texto-f p {
+    margin-bottom: 10px;
+}
+
+.Desenvolvido {
     color: gray;
+    font-size: 13px;
 }
 
-.img-herois{
-    margin-top: -50px;
-    padding: 20px;
-}
-.gravitfalls{
-    margin-top: -1000px;
-    padding: 550px;
-}
-
-@media(max-width: 500px){
-    .sec3 img{
-        grid-template-columns: 1fr ;
-    }
+.redes {
+    display: flex;
+    gap: 20px;
 }
