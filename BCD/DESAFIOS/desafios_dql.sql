@@ -97,16 +97,26 @@ JOIN categoria c ON p.id_categoria = c.id_categoria;
 
 -- 18. Gere um relatório dos itens vendidos exibindo: pedido, produto, quantidade, preço
 -- unitário e subtotal.
-
+SELECT ip.id_pedido, p.nome AS produto, ip.quantidade, ip.preco_unitario, (ip.quantidade * ip.preco_unitario) AS subtotal
+FROM item_pedido ip
+JOIN produto p ON ip.id_produto = p.id_produto;
 
 -- 19. Mostre todos os clientes, inclusive aqueles que nunca fizeram pedidos.
+SELECT c.nome AS cliente, p.id_pedido
+FROM cliente c
+LEFT JOIN pedido p ON c.id_cliente = p.id_cliente;
 
 -- 20. Liste apenas os clientes que nunca fizeram pedidos.
+SELECT c.nome AS cliente
+FROM cliente c
+LEFT JOIN pedido p ON c.id_cliente = p.id_cliente
+WHERE p.id_pedido IS NULL;
 
 -- Parte E — Desafio Gerencial Avançado
 
 -- 21. Informe quantos pedidos FINALIZADOS cada cliente realizou e quanto cada cliente
 -- gastou. Ordene do maior gasto para o menor.
+SELECT c.nome AS cliente, COUNT(p.id_pedido) AS total_pedidos, SUM(p.valor_total) AS total_gasto
 
 -- 22. Mostre a quantidade de produtos e o preço médio de cada categoria.
 

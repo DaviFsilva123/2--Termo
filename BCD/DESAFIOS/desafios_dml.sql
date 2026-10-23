@@ -197,18 +197,23 @@ DELETE FROM categoria WHERE nome = 'Excluir Depois';
 
 -- 17. Tente inserir um produto com id_categoria = 9999.
 -- Qual restrição impediu a operação?
-
+INSERT INTO produto (nome, preco, id_categoria) VALUES ('Produto Teste', 10.00, 9999);
+-- A restrição que impediu a operação foi a Foreign Key (FK) que referencia a tabela de categorias. Como não existe uma categoria com id_categoria = 9999, o banco de dados bloqueou a inserção do produto para manter a integridade referencial entre as tabelas produto e categoria.  
 
 -- 18. Tente cadastrar um cliente usando 'ana@email.com'.
 -- Qual restrição impediu a operação?
-
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES ('Ana Teste', 'ana@email.com', 19000000000, 'Teste Cidade', TRUE);
+-- A restrição que impediu a operação foi a Unique Key (UK) que referencia a coluna email. Como o email 'ana@email.com' já existe na tabela de clientes, o banco de dados bloqueou a inserção para manter a unicidade dos emails.
 
 -- 19. Tente criar um pedido com id_cliente = 9999.
 -- Qual restrição impediu a operação?
-
+iNSERT INTO pedido (id_cliente, data_pedido, valor_total, status_pedido) VALUES (9999, NOW(), 0.00, 'PENDENTE');
+-- A restrição que impediu a operação foi a Foreign Key (FK) que referencia a tabela de clientes. Como não existe um cliente com id_cliente = 9999, o banco de dados bloqueou a inserção do pedido para manter a integridade referencial entre as tabelas pedido e cliente.
 
 -- 20. Escreva em comentários a diferença entre os três erros anteriores.
-
+-- A diferença entre os três erros anteriores está relacionada ao tipo de restrição que foi violada em cada caso:
+-- 1. No caso do produto com id_categoria = 9999, a violação ocorreu devido à Foreign Key (FK) que garante a integridade referencial entre as tabelas produto e categoria. O banco de dados bloqueou a inserção porque não havia uma categoria correspondente.
+-- 2. No caso do cliente com email '
 
 -- PARTE E - DESAFIO COMPLETO COM TRANSAÇÃO
 
