@@ -1,11 +1,11 @@
 -- Active: 1788519229702@@127.0.0.1@3306@biblioteca_som2_davi
 
 -- FASE 1
-
+DROP DATABASE biblioteca_som2_davi;
 -- EX 1 - CRIAÇÃO DO BANCO DE DADOS
-CREATE DATABASE biblioteca_som2_davi
+CREATE DATABASE biblioteca_som2_davi;
 
-USE biblioteca_som2_davi
+USE biblioteca_som2_davi;
 
 
 -- EX 2 - TABELA USUARIO
@@ -33,13 +33,14 @@ CREATE TABLE emprestimo(
     data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
     data_prevista DATE NOT NULL,
     data_devolucao DATE,
-    status_emprestimo VARCHAR(20) DEFAULT 'ABERTO' CHECK (status_emprestimo = 'ABRETO'),
+    status_emprestimo VARCHAR(20) DEFAULT 'ABERTO' CHECK (status_emprestimo = 'ABERTO'),
     id_usuario INT NOT NULL,
     id_livro INT NOT NULL,
     CONSTRAINT fk_emprestimo_usuario FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
     CONSTRAINT fk_emprestimo_livro FOREIGN KEY (id_livro) REFERENCES livro (id_livro)
 );
 
+DROP TABLE emprestimo;
 CREATE TABLE funcionarios(
     id_funcionario INT PRIMARY KEY AUTO_INCREMENT,
     cpf_funcionario VARCHAR(14) NOT NULL UNIQUE,
@@ -66,20 +67,24 @@ INSERT INTO usuario (id_usuario, nome, email, telefone, ativo) VALUES
 (3, "Felipe Rodrigues", "Felipe.Rodrigues@email.com", 19999992, TRUE),
 (4, "Arthur Medeiros", "Arthur.Medeiros@email.com", 19999993, TRUE)
 
+SELECT * FROM LIVRO;
+
 -- EX 7 - INSERT DE LIVROS
-INSERT INTO livro (id_livro, titulo, autor, isbn, ano_publicacao, quantidade_disponivel) VALUES
-(1, "O Reformatório Nickel", "Colson Whitehead", 123456789011, 2020, 3),
-(2, "The Vanishing Half ", "Brit Bennett", 123456789012, 2020, 2),
-(3, "Harry Potter e a Pedra Filosofal", "J.K. Rowling", 123456789013, 1997, 10),
-(4, "Game of Thrones", " George R. R. Martin.", 123456789014, 2010, 20),
-(5, "Percy Jackson The Lightning Thief ", "Rick Riordan", 123456789015, 2005, 15),
-(6, "Brigerton", " Julia Quinn", 123456789016, 2000, 17)
+INSERT INTO livro (titulo, autor, isbn, ano_publicacao, quantidade_disponivel) VALUES
+("O Reformatório Nickel", "Colson Whitehead", 12345678901, 2020, 3),
+("The Vanishing Half ", "Brit Bennett", 123456789012, 2020, 2),
+("Harry Potter e a Pedra Filosofal", "J.K. Rowling", 123456789013, 1997, 10),
+("Game of Thrones", " George R. R. Martin.", 123456789014, 2010, 20),
+("Percy Jackson The Lightning Thief ", "Rick Riordan", 123456789015, 2005, 15),
+("Brigerton", " Julia Quinn", 123456789016, 2000, 17)
 
 -- EX 8 - INSERT DE IMPRESTIMOS
-INSERT INTO emprestimo (id_emprestimo, data_emprestimo, data_prevista, data_devolucao, status_emprestimo, id_usuario, id_livro) VALUES
-(1, NOW(), '2020-8-23', NULL, 'ABERTO', 1, 1 ),
-(2, NOW(), '2020-11-30', NULL, 'ABERTO', 2, 2 ),
-(3, NOW(), '1997-3-8', NULL, 'ABERTO', 3, 3 )
+INSERT INTO emprestimo (data_emprestimo, data_prevista, data_devolucao, status_emprestimo, id_usuario, id_livro) VALUES
+(NOW(), '2020-8-23', '2020-8-25', 'ABERTO', 1, 1 ),
+(NOW(), '2020-11-30', '2020-11-30', 'ABERTO', 2, 2 ),
+(NOW(), '1997-3-8', '1997-3-10', 'ABERTO', 3, 3 )
+
+SELECT * FROM emprestimo;
 
 INSERT INTO funcionarios(id_funcionario, cpf_funcionario, email_funcionario, telefone_funcionario) VALUES
 (1, '123.456.781', 'funcionario1@email.com', 19999999991),
@@ -109,6 +114,49 @@ SET quantidade_disponivel = 1
 WHERE ano_publicacao = 2020
 
 -- EX 11 - DELETE E INTEGRIDADE
+SELECT * FROM usuario
+
+
+INSERT INTO usuario(id_usuario, nome, email, telefone, ativo) VALUES
+(7, 'Keynan Santos', 'keynan.santos@email.com', 19999997, TRUE);
+
+DELETE FROM usuario
+WHERE id_usuario = 7
+
+DELETE FROM usuario
+WHERE id_usuario = 1
+
+-- FASE 3 
+
+-- EX 12 - SELECT BÁSICO
+
+SELECT  titulo, autor, quantidade_disponivel
+FROM livro
+
+-- EX 13 - WHERE + ORDER BY
+SELECT quantidade_disponivel
+FROM livro
+WHERE quantidade_disponivel > 2
+ORDER BY quantidade_disponivel ASC
+
+-- EX 14 - LIKE
+SELECT titulo
+FROM livro
+WHERE titulo LIKE 'Percy%';
+
+-- EX 15 - BETWEEN
+SELECT titulo, ano_publicacao
+FROM
+
+
+
+SELECT nome, preco FROM produto 
+WHERE preco BETWEEN 8.00 AND 15.00;
+-- CONSULTA POR INTERVALOS DE VALOR
+SELECT id_pedido, data_pedido, valor_total
+FROM pedido
+WHERE data_pedido BETWEEN '2026-09-01 00:00:00' AND '2026-09-30 23:59:59';
+
 
 
 
