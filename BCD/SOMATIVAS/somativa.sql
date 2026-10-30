@@ -1,6 +1,6 @@
 -- Active: 1788519229702@@127.0.0.1@3306@biblioteca_som2_davi
 
--- FASE 1
+-- FASE 1 - DDL
 DROP DATABASE biblioteca_som2_davi;
 -- EX 1 - CRIAÇÃO DO BANCO DE DADOS
 CREATE DATABASE biblioteca_som2_davi;
@@ -9,6 +9,7 @@ USE biblioteca_som2_davi;
 
 
 -- EX 2 - TABELA USUARIO
+
 CREATE TABLE usuario (
     id_usuario INT PRIMARY KEY AUTO_INCREMENT ,
     nome VARCHAR(100) NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE usuario (
 );
 
 -- EX 3 - TABELA LIVRO
+
 CREATE TABLE livro(
     id_livro INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(150) NOT NULL,
@@ -28,6 +30,7 @@ CREATE TABLE livro(
 );
 
 -- EX 4 - TABELA EMPRESTIMO
+
 CREATE TABLE emprestimo(
     id_emprestimo INT PRIMARY KEY AUTO_INCREMENT,
     data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -58,9 +61,10 @@ CREATE TABLE estoque(
 -- EX 5 - ALTER TABLE
 ALTER TABLE livro add editora varchar(100)
 
--- FASE 2
+-- FASE 2 DML 
 
 -- EX 6 - INSERT DE USUARIOS
+
 INSERT INTO usuario (id_usuario, nome, email, telefone, ativo) VALUES
 (1, "Davi Ferreira", "davi.ferreira@email.com", NULL, TRUE),
 (2, "Francisco Magri", "francisco.magri@email.com", 19999991, TRUE),
@@ -100,6 +104,7 @@ INSERT INTO estoque(id_estoque, quantidade_estoque, id_livro) VALUES
 (6, 100, 6)
 
 -- EX 9 - UPDATE
+
 SELECT * FROM usuario
 
 UPDATE usuario
@@ -107,6 +112,7 @@ SET telefone = '14114145'
 WHERE id_usuario = 2;
 
 -- EX 10 - ATUALIZAÇÃO EM LOTE
+
 SELECT * FROM livro;
 
 UPDATE livro
@@ -114,6 +120,7 @@ SET quantidade_disponivel = 1
 WHERE ano_publicacao = 2020
 
 -- EX 11 - DELETE E INTEGRIDADE
+
 SELECT * FROM usuario
 
 
@@ -127,7 +134,7 @@ DELETE FROM usuario
 WHERE id_usuario = 1
 -- O erro aconteceu porque o usuário 1 possui um empréstimo registrado na tabela emprestimo, e a integridade referencial faz com que um registro não seja excluído se ele estiver sendo pego de outra tabela.
 
--- FASE 3 
+-- FASE 3 - DML
 
 -- EX 12 - SELECT BÁSICO
 
@@ -135,23 +142,26 @@ SELECT  titulo, autor, quantidade_disponivel
 FROM livro
 
 -- EX 13 - WHERE + ORDER BY
+
 SELECT quantidade_disponivel
 FROM livro
 WHERE quantidade_disponivel > 2
 ORDER BY quantidade_disponivel ASC
 
 -- EX 14 - LIKE
+
 SELECT titulo
 FROM livro
 WHERE titulo LIKE 'Percy%';
 
 -- EX 15 - BETWEEN
+
 SELECT titulo, ano_publicacao
 FROM livro
 WHERE ano_publicacao BETWEEN '2015' AND '2025'
 
 -- EX 16 - FUNÇÕES AGREGADAS
--- Mostre COUNT, SUM, AVG, MIN e MAX sobre a quantidade disponível.
+
 -- (MIN, MAX, AVG)
 SELECT ROUND(MIN(quantidade_disponivel),2) AS Quantidade_baixas,
 ROUND(MAX(quantidade_disponivel),2) AS Quantidade_alta,
@@ -167,7 +177,7 @@ FROM livro
 GROUP BY titulo;
 
 -- EX 17 - INNER JOIN
--- Liste ID do empréstimo, usuário, livro, data e status.
+
 SELECT e.id_emprestimo, u.nome, l.titulo, e.data_emprestimo, e.status_emprestimo
 FROM emprestimo e
 INNER JOIN usuario u ON e.id_usuario = u.id_usuario
@@ -175,7 +185,7 @@ INNER JOIN livro l ON e.id_livro = l.id_livro
 
 
 -- EX 18 - JOIN + WHERE
--- Mostre apenas os empréstimos ABERTOS.
+
 SELECT e.id_emprestimo, u.nome, l.titulo, e.data_emprestimo, e.status_emprestimo
 FROM emprestimo e
 INNER JOIN usuario u ON e.id_usuario = u.id_usuario
@@ -183,7 +193,7 @@ INNER JOIN livro l ON e.id_livro = l.id_livro
 WHERE e.status_emprestimo = 'ABERTO'
 
 -- EX 19 - GROUP BY
--- Mostre cada usuário e sua quantidade de empréstimos, do maior para o menor.
+
 SELECT u.nome, COUNT(e.id_emprestimo) AS quantidade_emprestimos
 FROM emprestimo e
 INNER JOIN usuario u ON e.id_usuario = u.id_usuario
@@ -197,26 +207,25 @@ FROM usuario u
 LEFT JOIN emprestimo e ON u.id_usuario = e.id_usuario
 GROUP BY u.nome
 
+-- FASE 4 - TCL
 
--- 21. Transação de empréstimo — 7 pts
--- START TRANSACTION;
--- registre novo empréstimo;
--- reduza o estoque em 1;
--- consulte para conferir;
--- finalize com COMMIT.
+-- 21. TRANSAÇÃO DE EMPRÉSTIMO
+
 START TRANSACTION;
 INSERT INTO emprestimo (data_emprestimo, data_prevista, status_emprestimo, id_usuario, id_livro) VALUES
 (NOW(), '2024-07-01', 'ABERTO', 2, 3);
-UPDATE livro SET quantidade_disponivel = quantidade_disponivel - 1 WHERE id_livro = 3
+UPDATE livro SET quantidade_disponivel = quantidade_disponivel - 1 
+WHERE id_livro = 3
 
 SELECT * FROM emprestimo
 
 SELECT * FROM livro
 
 COMMIT;
+
+
 -- 22. ROLLBACK — 5 pts
--- Altere propositalmente a quantidade de um livro dentro de uma transação, consulte,
--- execute ROLLBACK e comprove o retorno do valor anterior.
+
 START TRANSACTION;
 SELECT * FROM livro 
 WHERE id_livro = 3;
