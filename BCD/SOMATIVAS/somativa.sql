@@ -125,6 +125,7 @@ WHERE id_usuario = 7
 
 DELETE FROM usuario
 WHERE id_usuario = 1
+-- O erro aconteceu porque o usuário 1 possui um empréstimo registrado na tabela emprestimo, e a integridade referencial faz com que um registro não seja excluído se ele estiver sendo pego de outra tabela.
 
 -- FASE 3 
 
@@ -146,24 +147,83 @@ WHERE titulo LIKE 'Percy%';
 
 -- EX 15 - BETWEEN
 SELECT titulo, ano_publicacao
-FROM
+FROM livro
+WHERE ano_publicacao BETWEEN '2015' AND '2025'
+
+-- EX 16 - FUNÇÕES AGREGADAS
+-- Mostre COUNT, SUM, AVG, MIN e MAX sobre a quantidade disponível.
+-- (MIN, MAX, AVG)
+SELECT ROUND(MIN(quantidade_disponivel),2) AS Quantidade_baixas,
+ROUND(MAX(quantidade_disponivel),2) AS Quantidade_alta,
+ROUND(AVG(quantidade_disponivel),2) AS Quantidade_baixa
+FROM livro
+-- (COUNT)
+SELECT titulo, COUNT(*) AS quantidade_disponivel
+FROM livro
+GROUP BY titulo
+-- (SUM)
+SELECT titulo, SUM(quantidade_disponivel) AS quantidade_disponivel
+FROM livro
+GROUP BY titulo;
+
+-- EX 17 - INNER JOIN
+-- Liste ID do empréstimo, usuário, livro, data e status.
+SELECT e.id_emprestimo, u.nome, l.titulo, e.data_emprestimo, e.status_emprestimo
+FROM emprestimo e
+INNER JOIN usuario u ON e.id_usuario = u.id_usuario
+INNER JOIN livro l ON e.id_livro = l.id_livro
 
 
+-- EX 18 - JOIN + WHERE
+-- Mostre apenas os empréstimos ABERTOS.
+SELECT e.id_emprestimo, u.nome, l.titulo, e.data_emprestimo, e.status_emprestimo
+FROM emprestimo e
+INNER JOIN usuario u ON e.id_usuario = u.id_usuario
+INNER JOIN livro l ON e.id_livro = l.id_livro
+WHERE e.status_emprestimo = 'ABERTO'
 
-SELECT nome, preco FROM produto 
-WHERE preco BETWEEN 8.00 AND 15.00;
--- CONSULTA POR INTERVALOS DE VALOR
-SELECT id_pedido, data_pedido, valor_total
-FROM pedido
-WHERE data_pedido BETWEEN '2026-09-01 00:00:00' AND '2026-09-30 23:59:59';
+-- EX 19 - GROUP BY
+-- Mostre cada usuário e sua quantidade de empréstimos, do maior para o menor.
+SELECT u.nome, COUNT(e.id_emprestimo) AS quantidade_emprestimos
+FROM emprestimo e
+INNER JOIN usuario u ON e.id_usuario = u.id_usuario
+GROUP BY u.nome
+ORDER BY quantidade_emprestimos DESC
+
+-- EX 20 - LEFT JOIN
+
+SELECT u.nome, COUNT(e.id_emprestimo) AS quantidade_emprestimos
+FROM usuario u
+LEFT JOIN emprestimo e ON u.id_usuario = e.id_usuario
+GROUP BY u.nome
 
 
+-- 21. Transação de empréstimo — 7 pts
+-- START TRANSACTION;
+-- registre novo empréstimo;
+-- reduza o estoque em 1;
+-- consulte para conferir;
+-- finalize com COMMIT.
+START TRANSACTION;
+INSERT INTO emprestimo (data_emprestimo, data_prevista, status_emprestimo, id_usuario, id_livro) VALUES
+(NOW(), '2024-07-01', 'ABERTO', 2, 3);
+UPDATE livro SET quantidade_disponivel = quantidade_disponivel - 1 WHERE id_livro = 3
 
+SELECT * FROM emprestimo
 
+SELECT * FROM livro
 
-
-
-
+COMMIT;
+-- 22. ROLLBACK — 5 pts
+-- Altere propositalmente a quantidade de um livro dentro de uma transação, consulte,
+-- execute ROLLBACK e comprove o retorno do valor anterior.
+START TRANSACTION;
+SELECT * FROM livro 
+WHERE id_livro = 3;
+SELECT quantidade_disponivel 
+FROM livro 
+WHERE id_livro = 3;
+ROLLBACK;
 
 
 
